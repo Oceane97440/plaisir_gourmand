@@ -1,0 +1,119 @@
+/*Header nav*/
+
+nav#menu.navbar-expand-md.navbar-dark.sticky-top.bg-default{
+    background-color: black;
+}
+    
+a.nav-link{
+color:#f3671f!important;
+margin-right: 20px;
+font-size: 1.2rem;
+font-family:verdana;
+}
+        
+    
+.navbar-brand{
+color: #f3671f;
+font-size: x-large;
+}
+    
+.nav-link{
+font-size: 1,5rem;
+font-family: 'Baloo Thambi', cursive;
+ font-size: x-large;
+ color: #f3671f;
+}
+
+#Titre2{
+    text-align: center;
+    color: aliceblue;
+    padding-top:50px;
+    font-weight: 500;
+    text-shadow: 2px 2px 2px black;
+
+}
+
+/*Fin Jubotron*/
+
+social-card-header{
+    position: relative;
+    
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    
+    
+    
+}
+
+
+.social-card-header i {
+    font-size: 32px;
+    color:#FFF;
+}
+
+.bg-pinterest {
+    background-color:#bd081c;
+}
+
+.share:hover {
+        text-decoration: none;
+    opacity: 0.8;
+}
+/*-*/
+.card-text {
+    font-family: verdana;
+  
+}
+
+.card-titre{
+    font-family: 'Roboto', sans-serif !important;
+  
+}
+
+.lead {
+    
+    text-align: center;
+    color: black;
+    font-weight: 500;
+    font-family: 'roboto'!important;
+}
+.intro {
+
+    text-align: justify;
+    color: black;
+    font-weight: 500;
+    font-family: 'roboto'!important;
+    font-size: large;
+}
+
+#Titre {
+        text-align: center;
+        color: aliceblue;
+        text-shadow: 2px 2px 2px black;
+        font-family: 'roboto'!important;
+    }
+#Titre1 {
+        text-align: center;
+        color: #d05c62;
+        text-shadow: 2px 2px 2px black;
+        font-family: 'roboto'!important;
+    }
+
+    .card-group {
+        padding-left: 100px;
+    }
+/*Footer*/
+
+
+
+
+.btn{
+    
+    background: #d05c62;
+    color: white;
+    
+    }
+/*Fin footer*/
