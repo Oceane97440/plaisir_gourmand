@@ -6,13 +6,14 @@ include('../includes/connect_bdd.php');
 //ici tu dois vérifier si $_SESSION existe
 if(isset($_SESSION['id']) AND !empty($_SESSION['id']) ){
 $sessionid = intval($_SESSION['id']); 
-
+var_dump($sessionid);
 $req=$bdd->query('SELECT * FROM ateliers');
 //traitement formulaire
 
 
 if(!empty($_POST['form_ajout_ateliers']) )
     {
+
         //stock mes valeurs des $_POST
         $titres = htmlspecialchars($_POST['ajout_titres']);
         $descriptif = htmlspecialchars($_POST['ajout_descriptif']);
@@ -39,19 +40,23 @@ if(!empty($_POST['form_ajout_ateliers']) )
         //Vérifier existence et si non vide
         
         if (!empty($titres) AND !empty($descriptif) AND !empty($date) AND !empty($times) AND !empty($duree) AND !empty($dispo) AND isset($reserver) AND !empty($prix) AND isset($actif) )                                    
-        { //in_array verif si la valeur fait parti du tableau   
+        { //in_array verif si la valeur fait parti du tableau  
+         
+
             if(in_array($file_extension,$extension_auto))
             {
                 if(move_uploaded_file($file_tmp_name,$file_dest))
                 {
                     //prepare insert into pour envoyer des données dans la BDD
-                    $ateliers = $bdd ->prepare('INSERT INTO ateliers (titre, descriptif, date_atelier, debut, duree, places_dispo, places_reserver, prix, nom_image, image, actif, id_cuisinier) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
-                    $ateliers ->execute(array($titres, $descriptif, $date, $times, $duree, $dispo, $reserver, $prix,$nom_img, $file_dest,$actif, $sessionid) );
+                    $ateliers = $bdd ->prepare('INSERT INTO ateliers (titre, descriptif, date_atelier, debut, duree, places_dispo, places_reserver, prix ,destination,nom_image, actif, id_cuisinier,utilisateurs_ateliers_id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)');
+                    $ateliers ->execute(array($titres, $descriptif,$date,$times,$duree ,$dispo,$reserver,$prix,$file_dest,$nom_img,$actif, $sessionid,NULL) );
+                    var_dump($ateliers);
                     $id_atelier = $bdd->lastInsertId();
-                    
+
                     $reponse = $bdd->prepare('INSERT INTO utilisateurs_ateliers (id_utilisateur, id_atelier) VALUE (?,?)');
                     $reponse->execute(array($_SESSION['id'], $id_atelier));
-                    
+                    var_dump($reponse);
+
                     $message ='donnees bien enregistrer!';  
                     header('Location: liste.php');
                 }else{

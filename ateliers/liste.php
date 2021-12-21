@@ -65,6 +65,7 @@ if(isset($_SESSION['id']) AND !empty($_SESSION['id']) ){
                 <li class="nav-item"><a href="../includes/deco.php" class="nav-link"><span><i class="fa fa-user"></i></span> Déconnexion</a></li>
                 </ul>
             </div>
+            
         </nav>
     </header> 
 
@@ -90,7 +91,7 @@ if(isset($_SESSION['id']) AND !empty($_SESSION['id']) ){
 
 <!-- Connexion BDD, table ateliers -->
 
-<?php $reponse = $bdd -> prepare('SELECT a.id AS id_atelier, a.titre, a.image, a.descriptif, a.date_atelier, a.debut, a.duree, a.places_dispo, a.places_reserver, a.prix, a.actif FROM ateliers a INNER JOIN utilisateurs_ateliers au ON au.id_atelier= a.id
+<?php $reponse = $bdd -> prepare('SELECT a.id AS id_atelier, a.titre, a.destination, a.descriptif, a.date_atelier, a.debut, a.duree, a.places_dispo, a.places_reserver, a.prix, a.actif FROM ateliers a INNER JOIN utilisateurs_ateliers au ON au.id_atelier= a.id
                                 WHERE id_utilisateur=?');
 $reponse->execute(array($_SESSION['id']));
 
@@ -104,7 +105,7 @@ while ($donnees = $reponse -> fetch())
     <!-- Affichage en php des données -->
     <tr class="d-flex">
         <td class="col-1"><?php echo $donnees['titre'];?></td>
-        <td class="col-1"><img src="<?php echo $donnees['image'];?>" class="img-fluid"></td>
+        <td class="col-1"><img src="<?php echo $donnees['destination'];?>" class="img-fluid"></td>
         <td class="col-2"><?php echo $donnees['descriptif'];?></td>
         <td class="col-1"><?php echo $donnees['date_atelier'];?></td>
         <td class="col-1"><?php echo $donnees['debut'];?></td>
@@ -123,7 +124,7 @@ while ($donnees = $reponse -> fetch())
      <!-- Affichage en php des données -->
      <tr class="d-flex">
         <td class="col-1"><?php echo $donnees['titre'];?></td>
-        <td class="col-1"><img class="img-fluid" src="<?php echo $donnees['image'];?>"></td>
+        <td class="col-1"><img class="img-fluid" src="<?php echo $donnees['destination'];?>"></td>
         <td class="col-2"><?php echo $donnees['descriptif'];?></td>
         <td class="col-1"><?php echo $donnees['date_atelier'];?></td>
         <td class="col-1"><?php echo $donnees['debut'];?></td>
@@ -140,6 +141,7 @@ while ($donnees = $reponse -> fetch())
         </div>
     </div>
  </div>
-       
+  
+
 </body>
 </html>

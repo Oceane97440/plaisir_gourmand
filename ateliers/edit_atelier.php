@@ -115,6 +115,7 @@ if(isset($_SESSION['id']) AND !empty($_SESSION['id']) )
                 <li class="nav-item"><a href="../includes/deco.php" class="nav-link"><span><i class="fa fa-user"></i></span> Déconnexion</a></li>
                 </ul>
             </div>
+            
         </nav>
     </header> 
 
@@ -130,7 +131,7 @@ if(isset($_SESSION['id']) AND !empty($_SESSION['id']) )
             <!-- nom image -->
             <div class="form-row">
                 <div class="col-4 mb-2">
-                    <img src="<?php echo $edit['image']; ?>" alt="" class="img-fluid">
+                    <img src="<?php echo $edit['destination']; ?>" alt="" class="img-fluid">
                 </div>
                 <div class="form-group col">
                     <label >Nom image : </label>
