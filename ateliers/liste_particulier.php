@@ -39,7 +39,6 @@ if(isset($_SESSION['id']) AND !empty($_SESSION['id']) ){
         }   
     }
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,9 +46,8 @@ if(isset($_SESSION['id']) AND !empty($_SESSION['id']) ){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Liste Ateliers</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
    
 </head>
@@ -71,10 +69,10 @@ if(isset($_SESSION['id']) AND !empty($_SESSION['id']) ){
               <li class="nav-item"><a href="../includes/deco.php" class="nav-link"><span><i class="fa fa-user"></i></span> Déconnexion</a></li>
             </ul>
           </div>
+      
     </nav>
 
 </header>
-
 
     <!-- Affichage liste sous forme de tableaux -->
     <div class="container">
@@ -105,7 +103,7 @@ if(isset($_SESSION['id']) AND !empty($_SESSION['id']) ){
 
                 <tr class="d-flex">
                     <td class="col-1"><?php echo $donnees['titre'];?></td>
-                    <td class="col-1"><img src="<?php echo $donnees['image'];?>" class="img-fluid"></td>
+                    <td class="col-1"><img src="<?php echo $donnees['destination'];?>" class="img-fluid"></td>
                     <td class="col-2"><?php echo $donnees['descriptif'];?></td>
                     <td class="col-1"><?php echo $donnees['date_atelier'];?></td>
                     <td class="col-1"><?php echo $donnees['debut'];?></td>
@@ -137,7 +135,10 @@ if(isset($_SESSION['id']) AND !empty($_SESSION['id']) ){
              <?php echo $message; ?>
          </span>
      <?php } ?>
- 
+
+
+<?php  include('../includes/footer.php');?>
+
 </body>
 </html>
 <?php } else{
